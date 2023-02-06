@@ -1,8 +1,8 @@
-import SimpleCard from './components/SimpleCard.component';
+import LandingPage from './components/LandingPage';
 import './App.css';
 
 function App() {
-  return <SimpleCard/>
+  return <LandingPage/>
 }
 
 export default App;

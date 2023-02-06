@@ -15,7 +15,7 @@ const LandingPage = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTextIndex(x=>(x + 1) % texts.length);
+      setTextIndex((x) => (x + 1) % texts.length);
       setIsAnimationPlayed(false);
     }, 8000);
     return () => clearInterval(interval);
@@ -24,31 +24,40 @@ const LandingPage = () => {
   return (
     <Container className={["root"]}>
       <div className="overlay"></div>
-      <div className="text-wrapper">
-        <div className="text">
-          <ul>
-            {currentText.map((item, index) => (
-              <li
-                key={index}
-                className={`${isAnimationPlayed ? "" : "animate"}`}
-                onAnimationEnd={() => setIsAnimationPlayed(true)}
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <Button
-        variant="contained"
-        color="primary"
-        className={[classes.button, "button"]}
-        onClick={() => setIsPopupOpen(true)}
-      >
-        Get Started
-      </Button>
-      {isPopupOpen && (
-        <LoginPopup isPopupOpen setIsPopupOpen={()=> {setIsPopupOpen(x=>!x)}} />
+
+      {isPopupOpen ? (
+        <LoginPopup
+          isPopupOpen
+          setIsPopupOpen={() => {
+            setIsPopupOpen((x) => !x);
+          }}
+        />
+      ) : (
+        <>
+          <div className="text-wrapper">
+            <div className="text">
+              <ul>
+                {currentText.map((item, index) => (
+                  <li
+                    key={index}
+                    className={`${isAnimationPlayed ? "" : "animate"}`}
+                    onAnimationEnd={() => setIsAnimationPlayed(true)}
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+            <Button
+              variant="contained"
+              color="primary"
+              className={[classes.button, "button"]}
+              onClick={() => setIsPopupOpen(true)}
+            >
+              Get Started
+            </Button>
+        </>
       )}
     </Container>
   );
