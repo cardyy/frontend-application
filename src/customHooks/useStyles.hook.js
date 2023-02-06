@@ -18,10 +18,11 @@ const useStyles = makeStyles()((theme) => ({
   button: {
     fontWeight: "bold",
     marginTop: "40%",
-    backgroundColor: "black",
-    color: "white",
+    fontSize:"0.75rem",
+    backgroundColor: "whitesmoke",
+    color: "#333",
     "&:hover": {
-      backgroundColor: "black",
+      backgroundColor: "whitesmoke",
     }
   },
 }));

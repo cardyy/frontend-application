@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFacebook, FaGoogle, FaTwitter } from 'react-icons/fa';
+import { FaUser, FaLock, FaFacebook, FaGoogle, FaTwitter } from 'react-icons/fa';
 
 const LoginPopup = (props) => {
   const togglePopup = () => {
@@ -17,16 +17,26 @@ const LoginPopup = (props) => {
             </span>
           </div>
           <form>
-            <input
-              type="text"
-              placeholder="Type your username"
-              className="popup-input"
-            />
-            <input
-              type="password"
-              placeholder="Type your password"
-              className="popup-input"
-            />
+            <div className="input-group">
+              <span className="input-icon">
+                <FaUser />
+              </span>
+              <input
+                type="text"
+                placeholder="Type your username"
+                className="popup-input with-icon"
+              />
+            </div>
+            <div className="input-group">
+              <span className="input-icon">
+                <FaLock />
+              </span>
+              <input
+                type="password"
+                placeholder="Type your password"
+                className="popup-input with-icon"
+              />
+            </div>
             <div className="social-login">
               <button className="facebook-login-btn">
                 <FaFacebook /> Login with Facebook
@@ -38,14 +48,16 @@ const LoginPopup = (props) => {
                 <FaTwitter /> Login with Twitter
               </button>
             </div>
-            <div className="links">
-              <span>New to Nebular?</span>
-              <button className="signup-btn">Sign Up</button>
-              <a href="#" className="forgot-password-link">
+            <div className="forgot-password-link" >
+              <a href="#" className="forgot-password-text">
                 Forgot Password?
               </a>
             </div>
-            <button type="submit" className="popup-button ">Login</button>
+            <div className='signup-container'>
+              <span className='signup-text'>New to Nebular?</span>
+              <a href="#" className="signup-link">Sign Up</a>
+            </div>
+            <button type="submit" className="popup-button">Login</button>
           </form>
         </div>
       </div>

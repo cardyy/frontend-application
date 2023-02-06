@@ -49,14 +49,12 @@ const LandingPage = () => {
               </ul>
             </div>
           </div>
-            <Button
-              variant="contained"
-              color="primary"
-              className={[classes.button, "button"]}
+            <button
+              className="button"
               onClick={() => setIsPopupOpen(true)}
             >
               Get Started
-            </Button>
+            </button>
         </>
       )}
     </Container>
